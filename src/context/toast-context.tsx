@@ -15,6 +15,7 @@ interface ToastContextType {
     variant?: "default" | "destructive" | "success"
   }) => string
   dismiss: (id: string) => void
+  showToast: (message: string, variant?: "default" | "destructive" | "success") => void
 }
 
 const ToastContext = createContext<ToastContextType | undefined>(undefined)
@@ -50,8 +51,12 @@ export function ToastProvider({ children }: { children: ReactNode }) {
     setToasts((prev) => prev.filter((t) => t.id !== id))
   }, [])
 
+  const showToast = useCallback((message: string, variant: "default" | "destructive" | "success" = "default") => {
+    toast({ description: message, variant })
+  }, [toast])
+
   return (
-    <ToastContext.Provider value={{ toasts, toast, dismiss }}>
+    <ToastContext.Provider value={{ toasts, toast, dismiss, showToast }}>
       {children}
     </ToastContext.Provider>
   )

@@ -36,7 +36,7 @@ export default function Checkout() {
   const navigate = useNavigate()
   const { user } = useAuth()
   const { showToast } = useToast()
-  const { cartItems, totalAmount, clearCart } = useCart()
+  const { cartItems, totalAmount } = useCart()
   
   const [formData, setFormData] = useState<OrderFormData>({
     ordererName: '',

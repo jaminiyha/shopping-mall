@@ -1,7 +1,7 @@
-import { createContext, useContext, useEffect, useState, useCallback, ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/context/AuthContext'
-import type { CartItem, Product } from '@/types/product'
+import type { CartItem } from '@/types/product'
 
 interface CartContextType {
   cartItems: CartItem[]

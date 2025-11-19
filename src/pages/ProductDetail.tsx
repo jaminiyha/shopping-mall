@@ -13,7 +13,6 @@ import { ShoppingCart, ArrowLeft } from "lucide-react"
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
-  const { user } = useAuth()
   const { addToCart } = useCart()
   const { showToast } = useToast()
   const [product, setProduct] = useState<Product | null>(null)
